@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.69c35084.css",
-    "main.js": "/static/js/main.b77827ce.js",
+    "main.css": "/static/css/main.6127f929.css",
+    "main.js": "/static/js/main.398577e6.js",
+    "static/media/grille.jpg": "/static/media/grille.9f1049f29a9aae15c218.jpg",
     "static/media/lyon1.png": "/static/media/lyon1.abdbf8476f9b369a1c12.png",
     "static/media/c.png": "/static/media/c.24a8f93854ab092f17a7.png",
     "index.html": "/index.html",
-    "main.69c35084.css.map": "/static/css/main.69c35084.css.map",
-    "main.b77827ce.js.map": "/static/js/main.b77827ce.js.map"
+    "main.6127f929.css.map": "/static/css/main.6127f929.css.map",
+    "main.398577e6.js.map": "/static/js/main.398577e6.js.map"
   },
   "entrypoints": [
-    "static/css/main.69c35084.css",
-    "static/js/main.b77827ce.js"
+    "static/css/main.6127f929.css",
+    "static/js/main.398577e6.js"
   ]
 }
