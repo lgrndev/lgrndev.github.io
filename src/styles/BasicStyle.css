@@ -9,8 +9,29 @@
     font-style: normal;
   }
 
-body {
-  background-color: rgb(24, 24, 27);
-  color: white;
+  .nav-container .nav-link {
+    filter: blur(0);
+    transition: filter 0.2s ease;
 }
-  
+
+.nav-container .nav-link:hover {
+    filter: blur(0);
+}
+
+.nav-container:hover .nav-link:not(:hover) {
+    filter: blur(3px);
+}
+
+
+.poppins-bold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+
+
+  .poppins-semibold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+  }
