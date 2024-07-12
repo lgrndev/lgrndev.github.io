@@ -15,7 +15,7 @@ function Header() {
 
 
 
-            <div className="flex flex-row gap-4 items-center">
+            <div className="flex flex-row gap-4 items-center mb-4 md:mb-0">
                 <img src={phi} alt="logo phi" className="h-20 invert" />
                 <div className="text-2xl font-bold text-white poppins-bold">Lgrndev</div>
             </div>

@@ -36,9 +36,9 @@ function Exercices() {
 
     return (
         <div>
-            <Link to="../" className="absolute right-8 bg-zinc-700 border border-zinc-400 pt-2 pb-2 pl-6 pr-6 rounded-full transition-all hover:bg-zinc-400">Retour à l'accueil</Link>
+            <Link to="../" className="absolute right-8 bg-zinc-700 border border-zinc-400 pt-2 pb-2 pl-6 pr-6 rounded-full transition-all hover:bg-zinc-400 hidden lg:block">Retour à l'accueil</Link>
             <div className="table-of-contents mb-8">
-                <h2 className="text-3xl font-bold text-center titre">⬇️Cliquez pour accéder directement⬇️</h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-center titre mr-4 ml-4">⬇️Cliquez pour accéder directement⬇️</h2>
                 <ul>
                     {Object.keys(exercicesGroupedByTd).map((tdNumber) => (
                         <li key={tdNumber} className="text-center">
@@ -50,12 +50,12 @@ function Exercices() {
             </div>
             <div className="flex flex-col items-center">
                 {Object.entries(exercicesGroupedByTd).map(([tdNumber, exercices]) => (
-                    <div id={`td-${tdNumber}`} key={tdNumber} className="w-1/2 bg-zinc-800 p-4 m-4 rounded-lg">
+                    <div id={`td-${tdNumber}`} key={tdNumber} className="w-3/4 md:w-1/2 bg-zinc-800 p-4 m-4 rounded-lg">
                         {exercices.map((exercice, index) => (
                             <div key={index}>
                                 <h1 className={`text-3xl mt-4 font-bold ${getTdColorClass(exercice.td)} titre`}>{exercice.titre}</h1>
                                 <p className="mt-2 mb-4">💡{exercice.description}</p>
-                                <SyntaxHighlighter language="javascript" style={a11yDark} className="mb-8">
+                                <SyntaxHighlighter language="javascript" style={a11yDark} className="mb-8 text-sm sm:text-base">
                                     {exercice.code}
                                 </SyntaxHighlighter>
                                 <div className={`w-auto h-0.5 ${getTdColorBG(exercice.td)} mt-10`}></div>

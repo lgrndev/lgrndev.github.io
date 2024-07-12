@@ -4,7 +4,7 @@ import fleche from '../../assets/fleche.png'
 
 function Accueil() {
     return (
-        <div className=" flex-col flex mr-56 ml-56 mt-20">
+        <div className=" flex-col flex lg:mr-56 lg:ml-56 lg:mt-20 mr-8 ml-8">
 
 
 
