@@ -122,6 +122,84 @@ int main()
 }`
     },
     {
+        td: 2,
+        titre: "TD 2 - Exercice 2",
+        description: "Cet exercice consiste à générer un entier aléatoire entre 100 et 200.",
+        code: `#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n1 = 100;
+    int n2 = 200;
+
+    int entier = rand() % (n2-n1+1) + n1;
+    cout << entier << endl;
+
+    return 0;
+}`,
+    },
+    {
+        td: 2,
+        titre: "TD 2 - Exercice 3",
+        description: "Cet exercice consiste faire des opérations avec un tableau de 10 entiers.",
+        code: `#include <iostream>
+#include <ctime>
+
+using namespace std;
+
+int main()
+{
+    srand(time(NULL));
+
+    int tableau[10];
+    int somme(0);
+    float moyenne;
+    int plusGrand(0);
+    int nPaire(0);
+
+    cout << "Le tableau est : " << endl;
+
+    for (int i(0);i < 10 ;i++) {
+        tableau[i] = rand() % (200 - 100 + 1) + 100;
+        cout << tableau[i] << " " ;
+    }
+
+    cout << endl;
+
+    for (int i(0);i < 10;i++) {
+        somme += tableau[i];
+    };
+
+    cout << "La somme des elements est : " << somme << endl;
+
+    moyenne = somme / 10;
+
+    cout << "La moyenne des elements est : " << moyenne << endl;
+
+    for (int i(0);i < 10;i++) {
+        if (tableau[i] > plusGrand) {
+            plusGrand = tableau[i];
+        };
+    };
+
+    cout << "Le plus grand des elements est : " << plusGrand << endl;
+
+
+    for (int i(0);i < 10;i++) {
+        if (tableau[i]%2 == 0) {
+            cout << tableau[i] << " est pair" << endl;
+            nPaire ++;
+        };
+    };
+
+    cout << "Il y a " << nPaire << " nombres paires !" << endl;
+
+    return 0;
+}`
+    },
+    {
         td: 3,
         titre: "TD 3 - Exercice 1",
         description: "Cet exercice consiste à calculer la somme des carrés des entiers de 1 à 100.",
