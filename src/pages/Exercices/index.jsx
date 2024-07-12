@@ -3,6 +3,7 @@ import { exercices } from "../../data/exercices";
 import copy from 'copy-to-clipboard';
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { useState } from "react";
 
 
 const groupExercicesByTd = (exercices) => {
@@ -36,11 +37,14 @@ function Exercices() {
         }
     };
 
+    const [copiedExercices, setCopiedExercices] = useState({});
 
-    const handleCopyCode = (code) => {
-        copy(code);
-        alert('Code copié !'); // Vous pouvez remplacer cela par une notification plus subtile si vous le souhaitez.
-    };
+
+    const handleCopyCode = (code, exerciceId) => {
+        navigator.clipboard.writeText(code).then(() => {
+          setCopiedExercices(prevState => ({...prevState, [exerciceId]: true}));
+        });
+      };
 
     
     return (
@@ -59,17 +63,17 @@ function Exercices() {
             </div>
             <div className="flex flex-col items-center ">
                 {Object.entries(exercicesGroupedByTd).map(([tdNumber, exercices]) => (
-                    <div id={`td-${tdNumber}`} key={tdNumber} className="w-3/4 md:w-1/2 bg-zinc-800 p-4 m-4 rounded-lg shadow-md shadow-blue-800">
+                    <div id={`td-${tdNumber}`} key={tdNumber} className="w-3/4 md:w-1/2 bg-zinc-800 p-4 m-4 rounded-lg">
                         {exercices.map((exercice, index) => (
                             <div key={index} className="relative">
                                 
                                 <h1 className={`text-3xl mt-4 font-bold ${getTdColorClass(exercice.td)} titre`}>{exercice.titre}</h1>
                                 <p className="mt-2 mb-4">💡{exercice.description}</p>
-                                <div className=" flex flex-col hover:shadow-md rounded-lg hover:shadow-violet-600 transition-all">
+                                <div className=" flex flex-col rounded-lg">
                                 <div className="flex flex-row justify-between h-8 bg-zinc-700 items-center pl-2 pr-2 text-sm rounded-t-lg">
                                     <div>main.cpp</div>
-                                    <button onClick={() => handleCopyCode(exercice.code)} className="w-fit copy-button text-zinc-400 titre hover:text-zinc-200 transition-all">
-                                        📋 Copier le code
+                                    <button onClick={() => handleCopyCode(exercice.code, `${tdNumber}-${index}`)} className="w-fit copy-button text-zinc-400 titre hover:text-zinc-200 transition-all">
+                                        {copiedExercices[`${tdNumber}-${index}`] ? '✅ Copié' : '📋 Copier le code'}
                                     </button>
                                 </div>
                                 <SyntaxHighlighter language="c++" style={atomOneDark} customStyle={{padding: '25px',borderRadius :'0px 0px 10px 10px'}}>
