@@ -18,10 +18,10 @@ function Exercices() {
 
     const getTdColorClass = (tdNumber) => {
         switch(tdNumber) {
-            case 1: return "green";
-            case 2: return "blue";
-            case 3: return "red";
-            default: return "zinc";
+            case 1: return "text-green-500";
+            case 2: return "text-blue-500";
+            case 3: return "text-red-500";
+            default: return "text-zinc-500";
         }
     };
 
@@ -53,7 +53,7 @@ function Exercices() {
                     <div id={`td-${tdNumber}`} key={tdNumber} className="w-1/2 bg-zinc-800 p-4 m-4 rounded-lg">
                         {exercices.map((exercice, index) => (
                             <div key={index}>
-                                <h1 className={`text-3xl mt-4 font-bold text-${getTdColorClass(exercice.td)}-500 titre`}>{exercice.titre}</h1>
+                                <h1 className={`text-3xl mt-4 font-bold ${getTdColorClass(exercice.td)} titre`}>{exercice.titre}</h1>
                                 <p className="mt-2 mb-4">💡{exercice.description}</p>
                                 <SyntaxHighlighter language="javascript" style={a11yDark} className="mb-8">
                                     {exercice.code}
