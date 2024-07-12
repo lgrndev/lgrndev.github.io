@@ -1,78 +1,71 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import { Light as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { a11yDark} from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { a11yDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { exercices } from "../../data/exercices";
 
-
-const repoOwner = 'lgrndev'; // Remplacez par le nom du propriétaire du dépôt
-const repoName = 'exercices-c-lyon1'; // Remplacez par le nom du dépôt
-const fileName = 'main.cpp';
-
-async function fetchBranches() {
-    const response = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/branches`);
-    const branches = await response.json();
-    return branches;
-}
-
-async function fetchFileContent(branch) {
-    const response = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contents/${fileName}?ref=${branch}`);
-    if (response.status === 200) {
-        const fileData = await response.json();
-        const content = atob(fileData.content);
-        return content;
-    } else {
-        return null;
-    }
-}
-
-async function displayFiles() {
-    const branches = await fetchBranches();
-    const contentDiv = document.getElementById('content');
-    contentDiv.innerHTML = ''; // Clear previous content
-
-    // Ensure branches is an array before attempting to iterate
-    if (!Array.isArray(branches)) {
-        console.error('Failed to fetch branches or branches is not an array:', branches);
-        return; // Exit the function if branches is not an array
-    }
-
-    for (const branch of branches) {
-        const content = await fetchFileContent(branch.name);
-        if (content) {
-            const div = document.createElement('div');
-            div.className = 'file-content';
-            const h3 = document.createElement('h3');
-            h3.className = "text-2xl font-bold text-white mt-20 mb-8 poppins-bold"; 
-            h3.textContent = branch.name;
-            div.appendChild(h3);
-            const pre = document.createElement('pre');
-            pre.textContent = content;
-            div.appendChild(pre);
-            contentDiv.appendChild(div);
+const groupExercicesByTd = (exercices) => {
+    return exercices.reduce((acc, exercice) => {
+        if (!acc[exercice.td]) {
+            acc[exercice.td] = [];
         }
-    }
-}
+        acc[exercice.td].push(exercice);
+        return acc;
+    }, {});
+};
 
-function startAutoRefresh(intervalMinutes) {
-    displayFiles(); // Initial call
-    setInterval(displayFiles, intervalMinutes * 60 * 1000); // Repeat every intervalMinutes
-}
+function Exercices() {
+    const exercicesGroupedByTd = groupExercicesByTd(exercices);
 
-// Start the auto-refresh with a 15-minute interval
-startAutoRefresh(15);
+    const getTdColorClass = (tdNumber) => {
+        switch(tdNumber) {
+            case 1: return "green";
+            case 2: return "blue";
+            case 3: return "red";
+            default: return "zinc";
+        }
+    };
 
+    const getTdColorBG = (tdNumber) => {
+        switch(tdNumber) {
+            case 1: return "bg-gradient-to-r to-zinc-600 from-green-500";
+            case 2: return "bg-gradient-to-r to-zinc-600 from-blue-500";
+            case 3: return "bg-gradient-to-r to-zinc-600 from-red-500";
+            default: return "bg-gradient-to-r to-zinc-600 from-zinc-500";
+        }
+    };
 
-function Exercices () {
-    
     return (
-        <div className="m-8">
-            {/* <Link to="../" className="absolute right-8 top-4 bg-blue-600 pt-1 pb-1 pl-4 pr-4 rounded-full transition-all">Retour à l'accueil</Link> */}
-            <div className="flex flex-col  items-center">
-
-                <div id="content"></div>
-
+        <div>
+            <Link to="../" className="absolute right-8 bg-zinc-700 border border-zinc-400 pt-2 pb-2 pl-6 pr-6 rounded-full transition-all hover:bg-zinc-400">Retour à l'accueil</Link>
+            <div className="table-of-contents mb-8">
+                <h2 className="text-3xl font-bold text-center titre">⬇️Cliquez pour accéder directement⬇️</h2>
+                <ul>
+                    {Object.keys(exercicesGroupedByTd).map((tdNumber) => (
+                        <li key={tdNumber} className="text-center">
+                            <a href={`#td-${tdNumber}`} className="text-white hover:underline text-xl titre">{`TD ${tdNumber}`}</a>
+                        </li>
+                    ))}
+                </ul>
+                
+            </div>
+            <div className="flex flex-col items-center">
+                {Object.entries(exercicesGroupedByTd).map(([tdNumber, exercices]) => (
+                    <div id={`td-${tdNumber}`} key={tdNumber} className="w-1/2 bg-zinc-800 p-4 m-4 rounded-lg">
+                        {exercices.map((exercice, index) => (
+                            <div key={index}>
+                                <h1 className={`text-3xl mt-4 font-bold text-${getTdColorClass(exercice.td)}-500 titre`}>{exercice.titre}</h1>
+                                <p className="mt-2 mb-4">💡{exercice.description}</p>
+                                <SyntaxHighlighter language="javascript" style={a11yDark} className="mb-8">
+                                    {exercice.code}
+                                </SyntaxHighlighter>
+                                <div className={`w-auto h-0.5 ${getTdColorBG(exercice.td)} mt-10`}></div>
+                            </div>
+                        ))}
+                    </div>
+                ))}
             </div>
         </div>
-    )
+    );
 }
 
-export default Exercices
+export default Exercices;
