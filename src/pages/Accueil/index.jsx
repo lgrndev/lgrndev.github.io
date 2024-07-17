@@ -67,30 +67,32 @@ function Accueil() {
             <div className='flex lg:flex-row justify-between flex-col items-center lg:items-start'>
                 <p className='text-zinc-400 sm:w-2/3 p-4 sm:p-8 pt-8 pb-8'>
                     👋 Bienvenue sur <span className='text-blue-50'>lgrndev</span> 🚀, un site bénévole créé par Lucas Langrand (@lgrndev)🌟 ! Sur ce site, vous trouverez les corrections de différentes matières proposées à l'Université Lyon1, destinées à vous aider dans vos études. Que ce soit en sciences, en mathématiques ou en informatique, <span className='text-blue-50'>lgrndev</span> est là pour vous fournir des ressources de qualité et vous accompagner tout au long de votre parcours universitaire.
+                    <br/>
+                    <br/>Contactez moi sur mon e-mail : <a href='mailto:lucas.langrand@etu.univ-lyon1.fr?body=Mes cours - Lgrndev' className='text-blue-50'>lucas.langrand@etu.univ-lyon1.fr</a> pour me proposer vos cours/exercices corrigés !
                 </p>
 
                 <div className='flex flex-col gap-4'>
-                    <StyledLink to='/exercices' className='bg-blue-600 text-white p-4 pr-6 pl-6 rounded-full h-fit mr-10 hover:bg-blue-500 transition-all active:bg-blue-700 w-48 text-center poppins-bold'>Voir les corrigés</StyledLink>
+                    <StyledLink to='/exercices' className='bg-blue-600 text-white p-4 pr-6 pl-6 rounded-full h-fit mr-10 hover:bg-blue-500 transition-all active:bg-blue-700  text-center poppins-bold'>Voir les corrigés de C++</StyledLink>
                     <img src={fleche} alt='fleche' className='w-32 h-32 -rotate-90 invert opacity-80 -ml-16 hidden lg:block' />
                 </div>
             </div>
 
             <div className='w-auto h-0.5 bg-gradient-to-r to-zinc-600 from-blue-500 mt-10'></div>
 
-            <div className='flex flex-col md:flex-row justify-center gap-20 items-center mt-6'>
-            <div class="card" ref={el => tiltRefs.current[0] = el} data-tilt>
+            <div className='flex flex-col md:flex-row justify-center gap-20 items-center mt-16'>
+            <div class="card" ref={el => tiltRefs.current[0] = el} data-tilt data-tilt-perspective="1500">
                 <div class="card-image card-image1" ></div>
                 <div class="card-text">
-                    <span class="date">Mis à jour il y a 2 jours</span>
+                    <span class="date">Mis à jour le 18/07/2024</span>
                     <h2 className='text-xl font-bold poppins-bold'>Introduction au C++</h2>
                     <p>Language de programmation compilé permettant la programmation sous de multiples paradigmes, dont la programmation procédurale, la programmation orientée objet et la programmation générique.</p>
                 </div>
                 <div class="card-stats mt-8">
-                    <Link to={"/exercices"} className='border pt-1 pb-1 pr-6 pl-6 rounded-full border-zinc-600 bg-blue-600 poppins-bold hover:bg-blue-800 transition-all text-sm'>Voir les corrigés</Link>
+                    <Link to={"/exercices"} className='button-p border pt-1 pb-1 pr-6 pl-6 rounded-full border-zinc-600 bg-blue-600 poppins-bold hover:bg-blue-800 transition-all text-sm'>Voir les corrigés</Link>
                 </div>
             </div>
 
-            <div class="card" ref={el => tiltRefs.current[1] = el} data-tilt>
+            <div class="card" ref={el => tiltRefs.current[1] = el} data-tilt data-tilt-perspective="1500">
                 <div class="card-image card-image2" ></div>
                 <div class="card-text">
                     <span class="date">Coming Soon...</span>
@@ -98,9 +100,22 @@ function Accueil() {
                     <p>La science des données avec Python utilise des bibliothèques puissantes pour analyser et visualiser les données, facilitant ainsi la prise de décisions basées sur des insights approfondis..</p>
                 </div>
                 <div class="card-stats mt-8">
-                    <Link to={"/"} className='border pt-1 pb-1 pr-6 pl-6 rounded-full border-zinc-600 bg-blue-600 poppins-bold hover:bg-blue-800 transition-all text-sm'>Bientôt !</Link>
+                    <Link to={"/"} className='button-p border pt-1 pb-1 pr-6 pl-6 rounded-full border-zinc-600 bg-blue-600 poppins-bold hover:bg-blue-800 transition-all text-sm'>Bientôt !</Link>
                 </div>
             </div>
+
+            <div class="card" ref={el => tiltRefs.current[2] = el} data-tilt data-tilt-perspective="1500">
+                <div class="card-image card-image3" ></div>
+                <div class="card-text">
+                    <span class="date">Peut-être ?</span>
+                    <h2 className='text-xl poppins-bold'>???</h2>
+                    <p>Contactez moi sur mon e-mail : lucas.langrand@etu.univ-lyon1.fr pour me proposer vos cours/exercices corrigés !</p>
+                </div>
+                <div class="card-stats mt-8">
+                    <a href="mailto:lucas.langrand@etu.univ-lyon1.fr?body=Mes cours - Lgrndev" className='button-p border pt-1 pb-1 pr-6 pl-6 rounded-full border-zinc-600 bg-blue-600 poppins-bold hover:bg-blue-800 transition-all text-sm'>Me contacter</a>
+                </div>
+            </div>
+
 
             </div>
 

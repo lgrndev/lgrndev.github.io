@@ -8,9 +8,8 @@
     background-color: rgb(24, 24, 27);
     box-shadow: 5px 5px 15px #629cf8b7;
     text-align: center;
-    font-family: roboto;
     color: white;
-
+    transform-style : preserve-3d;
 }
 
 
@@ -23,6 +22,8 @@
 .card-text {
     grid-area: text;
     margin: 25px;
+    
+    transform: translateZ(20px);
 }
 
 .card-text .date {
@@ -38,6 +39,7 @@
 
 .card-text h2 {
     margin-top: 0px;
+    
 }
 
 .card-stats {
@@ -62,4 +64,15 @@
     
     background-size: cover;
     background-position: center;
+}
+.card-image3 {
+    
+    background: url("../../assets/background_card_3.jpg");
+    
+    background-size: cover;
+    background-position: center;
+}
+.card-stats {
+    
+    transform: translateZ(20px);
 }

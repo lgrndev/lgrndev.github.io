@@ -6,6 +6,7 @@ import Accueil from './pages/Accueil';
 import Header from './components/Header/Header';
 import Exercices from './pages/Exercices';
 import Footer from './components/Footer';
+import APropos from './pages/APropos';
 
 import grille from './assets/grille.jpg';
 
@@ -45,6 +46,7 @@ ReactDOM.render(
           <Routes>
               <Route path="/" element={<Accueil />} />
               <Route path="/exercices" element={<Exercices />} />
+              <Route path="/apropos" element={<APropos />} />
           </Routes>
           <Footer />
       </Router>
