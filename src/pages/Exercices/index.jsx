@@ -6,6 +6,7 @@ import { useState } from "react";
 import styled from "styled-components";
 
 
+
 const groupExercicesByTd = (exercices) => {
     return exercices.reduce((acc, exercice) => {
         if (!acc[exercice.td]) {
@@ -17,6 +18,13 @@ const groupExercicesByTd = (exercices) => {
 };
 
 function Exercices() {
+
+
+
+
+
+
+    
     const exercicesGroupedByTd = groupExercicesByTd(exercices);
 
     const getTdColorClass = (tdNumber) => {
@@ -59,7 +67,7 @@ function Exercices() {
     left: -10px;
     right: -10px;
     bottom: -10px;
-    background: linear-gradient(145deg, #706eff, #faff61);
+    background: linear-gradient(145deg, #3B82F6, #90b3ee);
     z-index: -1;
     border-radius: inherit;
     filter: blur(10px);
@@ -73,9 +81,9 @@ function Exercices() {
 
     return (
         <div>
-            <Link to="../" className="absolute right-8 bg-zinc-700 border border-zinc-400 pt-2 pb-2 pl-6 pr-6 rounded-full transition-all hover:bg-zinc-400 hidden lg:block">Retour à l'accueil</Link>
+            <Link to="../" className="absolute right-8 bg-zinc-700 border border-zinc-400 pt-2 pb-2 pl-6 pr-6 rounded-full transition-all hover:bg-zinc-400 hidden lg:block text-white">Retour à l'accueil</Link>
             <div className="table-of-contents mb-8">
-                <h2 className="text-2xl md:text-3xl font-bold text-center titre mr-4 ml-4">⬇️Cliquez pour accéder directement⬇️</h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-center titre mr-4 ml-4 text-white">⬇️Cliquez pour accéder directement⬇️</h2>
                 <ul>
                     {Object.keys(exercicesGroupedByTd).map((tdNumber) => (
                         <li key={tdNumber} className="text-center">
@@ -92,15 +100,15 @@ function Exercices() {
                             <div key={index} className="relative">
 
                                 <h1 className={`text-3xl mt-4 font-bold ${getTdColorClass(exercice.td)} titre`}>{exercice.titre}</h1>
-                                <p className="mt-2 mb-4">💡{exercice.description}</p>
+                                <p className="mt-2 mb-4 text-white">💡{exercice.description}</p>
                                 <div className=" flex flex-col rounded-lg">
                                     <div className="flex flex-row justify-between h-8 bg-zinc-700 items-center pl-2 pr-2 text-sm rounded-t-lg">
-                                        <div>main.cpp</div>
+                                        <div className="text-white">main.cpp</div>
                                         <button onClick={() => handleCopyCode(exercice.code, `${tdNumber}-${index}`)} className="w-fit copy-button text-zinc-400 titre hover:text-zinc-200 transition-all">
                                             {copiedExercices[`${tdNumber}-${index}`] ? '✅ Copié' : '📋 Copier le code'}
                                         </button>
                                     </div>
-                                    <SyntaxHighlighter language="c++" style={atomOneDark} customStyle={{ padding: '25px', borderRadius: '0px 0px 10px 10px' }}>
+                                    <SyntaxHighlighter language="c++" style={atomOneDark} customStyle={{ padding: '25px', borderRadius: '0px 0px 10px 10px' }} className="text-xs md:text-base">
                                         {exercice.code}
                                     </SyntaxHighlighter>
                                 </div>

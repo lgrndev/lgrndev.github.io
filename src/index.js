@@ -14,7 +14,6 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyle = createGlobalStyle`
     body {
         background-color: rgb(24, 24, 27);
-        color: rgb(255, 255, 255);
         position: relative;
         z-index: 0;
         align-items: center;

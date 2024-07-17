@@ -4,7 +4,7 @@ import phi from '../../assets/lyon1.png'
 
 function Header() {
     return (
-        <div className="flex md:flex-row justify-between p-4 items-center flex-col">
+        <div className="flex md:flex-row justify-between p-4 items-center flex-col text-white">
 
 
 
