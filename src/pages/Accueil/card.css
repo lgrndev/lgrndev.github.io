@@ -23,7 +23,7 @@
     grid-area: text;
     margin: 25px;
     
-    transform: translateZ(20px);
+    transform: translateZ(30px);
 }
 
 .card-text .date {
@@ -74,5 +74,7 @@
 }
 .card-stats {
     
-    transform: translateZ(20px);
+    transform: translateZ(15px);
+    
+    box-shadow: 5px 5px 15px #629cf8b7;
 }

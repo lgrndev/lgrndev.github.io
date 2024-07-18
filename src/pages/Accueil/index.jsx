@@ -87,9 +87,8 @@ function Accueil() {
                     <h2 className='text-xl font-bold poppins-bold'>Introduction au C++</h2>
                     <p>Language de programmation compilé permettant la programmation sous de multiples paradigmes, dont la programmation procédurale, la programmation orientée objet et la programmation générique.</p>
                 </div>
-                <div class="card-stats mt-8">
-                    <Link to={"/exercices"} className='button-p border pt-1 pb-1 pr-6 pl-6 rounded-full border-zinc-600 bg-blue-600 poppins-bold hover:bg-blue-800 transition-all text-sm'>Voir les corrigés</Link>
-                </div>
+                    <Link to={"/exercices"} className='card-stats mt-8 poppins-bold bg-blue-600 hover:bg-blue-800 transition-all rounded-br-2xl rounded-bl-2xl text-center justify-center items-center flex'>Voir les corrigés</Link>
+                
             </div>
 
             <div class="card" ref={el => tiltRefs.current[1] = el} data-tilt data-tilt-perspective="1500">
@@ -99,9 +98,8 @@ function Accueil() {
                     <h2 className='text-xl poppins-bold'>DataScience - Python</h2>
                     <p>La science des données avec Python utilise des bibliothèques puissantes pour analyser et visualiser les données, facilitant ainsi la prise de décisions basées sur des insights approfondis..</p>
                 </div>
-                <div class="card-stats mt-8">
-                    <Link to={"/"} className='button-p border pt-1 pb-1 pr-6 pl-6 rounded-full border-zinc-600 bg-blue-600 poppins-bold hover:bg-blue-800 transition-all text-sm'>Bientôt !</Link>
-                </div>
+                    <Link to={"/"} className='card-stats mt-8 poppins-bold bg-blue-600 hover:bg-blue-800 transition-all rounded-br-2xl rounded-bl-2xl text-center justify-center items-center flex'>Bientôt !</Link>
+                
             </div>
 
             <div class="card" ref={el => tiltRefs.current[2] = el} data-tilt data-tilt-perspective="1500">
@@ -111,9 +109,8 @@ function Accueil() {
                     <h2 className='text-xl poppins-bold'>???</h2>
                     <p>Contactez moi sur mon e-mail : lucas.langrand@etu.univ-lyon1.fr pour me proposer vos cours/exercices corrigés !</p>
                 </div>
-                <div class="card-stats mt-8">
-                    <a href="mailto:lucas.langrand@etu.univ-lyon1.fr?body=Mes cours - Lgrndev" className='button-p border pt-1 pb-1 pr-6 pl-6 rounded-full border-zinc-600 bg-blue-600 poppins-bold hover:bg-blue-800 transition-all text-sm'>Me contacter</a>
-                </div>
+                    <a className='card-stats mt-8 poppins-bold bg-blue-600 hover:bg-blue-800 transition-all rounded-br-2xl rounded-bl-2xl text-center justify-center items-center flex' href="mailto:lucas.langrand@etu.univ-lyon1.fr?body=Mes cours - Lgrndev">Me contacter</a>
+                
             </div>
 
 
