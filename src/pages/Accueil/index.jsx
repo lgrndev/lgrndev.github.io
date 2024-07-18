@@ -1,11 +1,11 @@
 import React from 'react';
-import Image from '../../assets/c.png';
 import { Link } from 'react-router-dom';
 import fleche from '../../assets/fleche.png';
 import styled from 'styled-components';
 import './card.css';
 import VanillaTilt from 'vanilla-tilt';
 import { useEffect, useRef } from 'react';
+import { listeCours } from '../../data/listeCours';
 
 const StyledLink = styled(Link)`
   position: relative;
@@ -72,45 +72,34 @@ function Accueil() {
                 </p>
 
                 <div className='flex flex-col gap-4'>
-                    <StyledLink to='/exercices' className='bg-blue-600 text-white p-4 pr-6 pl-6 rounded-full h-fit mr-10 hover:bg-blue-500 transition-all active:bg-blue-700  text-center poppins-bold'>Voir les corrigés de C++</StyledLink>
+                    <StyledLink to='/cours/cpp' className='bg-blue-600 text-white p-4 pr-6 pl-6 rounded-full h-fit mr-10 hover:bg-blue-500 transition-all active:bg-blue-700  text-center poppins-bold'>Voir les corrigés de C++</StyledLink>
                     <img src={fleche} alt='fleche' className='w-32 h-32 -rotate-90 invert opacity-80 -ml-16 hidden lg:block' />
                 </div>
             </div>
 
             <div className='w-auto h-0.5 bg-gradient-to-r to-zinc-600 from-blue-500 mt-10'></div>
 
-            <div className='flex flex-col md:flex-row justify-center gap-20 items-center mt-16'>
-            <div class="card" ref={el => tiltRefs.current[0] = el} data-tilt data-tilt-perspective="1500">
-                <div class="card-image card-image1" ></div>
-                <div class="card-text">
-                    <span class="date">Mis à jour le 18/07/2024</span>
-                    <h2 className='text-xl font-bold poppins-bold'>Introduction au C++</h2>
-                    <p>Language de programmation compilé permettant la programmation sous de multiples paradigmes, dont la programmation procédurale, la programmation orientée objet et la programmation générique.</p>
-                </div>
-                    <Link to={"/exercices"} className='card-stats mt-8 poppins-bold bg-blue-600 hover:bg-blue-800 transition-all rounded-br-2xl rounded-bl-2xl text-center justify-center items-center flex'>Voir les corrigés</Link>
-                
-            </div>
+            <div className='flex flex-col flex-wrap md:flex-row justify-center gap-20 items-center mt-16'>
+           
 
-            <div class="card" ref={el => tiltRefs.current[1] = el} data-tilt data-tilt-perspective="1500">
-                <div class="card-image card-image2" ></div>
-                <div class="card-text">
-                    <span class="date">Coming Soon...</span>
-                    <h2 className='text-xl poppins-bold'>DataScience - Python</h2>
-                    <p>La science des données avec Python utilise des bibliothèques puissantes pour analyser et visualiser les données, facilitant ainsi la prise de décisions basées sur des insights approfondis..</p>
-                </div>
-                    <Link to={"/"} className='card-stats mt-8 poppins-bold bg-blue-600 hover:bg-blue-800 transition-all rounded-br-2xl rounded-bl-2xl text-center justify-center items-center flex'>Bientôt !</Link>
-                
-            </div>
+            {listeCours.slice(0,3).map(function (cours) {
+                return (
+                    <div class="card relative" ref={el => tiltRefs.current[cours.id] = el} data-tilt data-tilt-perspective="1500">
+                        <div className='absolute right-2 poppins-bold text-sm top-2 bg-zinc-800 pt-1 pb-1 pr-2 pl-2 rounded-md'>{cours.type === 'exercices' && "Exercices"} </div>
+                        <div className='absolute right-2 poppins-bold text-sm top-2 bg-zinc-800 pt-1 pb-1 pr-2 pl-2 rounded-md'>{cours.type === 'cours' && "Cours"} </div>
+                        <div class={`card-image ${cours.image}`} ></div>
+                        <div class="card-text">
+                            <span class="date">{cours.date}</span>
+                            <h2 className='text-xl poppins-bold'>{cours.titre}</h2>
+                            <p>{cours.description}</p>
+                        </div>
+                        <Link to={cours.lien} className='card-stats mt-8 poppins-bold bg-blue-600 hover:bg-blue-800 transition-all rounded-br-2xl rounded-bl-2xl text-center justify-center items-center flex'>{cours["button-text"]}</Link>
+                    </div>
+                )
+            })}
 
-            <div class="card" ref={el => tiltRefs.current[2] = el} data-tilt data-tilt-perspective="1500">
-                <div class="card-image card-image3" ></div>
-                <div class="card-text">
-                    <span class="date">Peut-être ?</span>
-                    <h2 className='text-xl poppins-bold'>???</h2>
-                    <p>Contactez moi sur mon e-mail : lucas.langrand@etu.univ-lyon1.fr pour me proposer vos cours/exercices corrigés !</p>
-                </div>
-                    <a className='card-stats mt-8 poppins-bold bg-blue-600 hover:bg-blue-800 transition-all rounded-br-2xl rounded-bl-2xl text-center justify-center items-center flex' href="mailto:lucas.langrand@etu.univ-lyon1.fr?body=Mes cours - Lgrndev">Me contacter</a>
-                
+            <div className='text-white poppins-bold text-xl'>
+                Etc...
             </div>
 
 

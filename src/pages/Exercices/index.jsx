@@ -1,125 +1,68 @@
-import { Link } from "react-router-dom";
-import { exercices } from "../../data/exercices";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { useState } from "react";
-import styled from "styled-components";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import './../Accueil/card.css';
+import VanillaTilt from 'vanilla-tilt';
+import { useEffect, useRef } from 'react';
+import { listeCours } from '../../data/listeCours';
 
 
-
-const groupExercicesByTd = (exercices) => {
-    return exercices.reduce((acc, exercice) => {
-        if (!acc[exercice.td]) {
-            acc[exercice.td] = [];
-        }
-        acc[exercice.td].push(exercice);
-        return acc;
-    }, {});
-};
 
 function Exercices() {
 
+    const tiltRefs = useRef([]);
 
-
-
-
-
-    
-    const exercicesGroupedByTd = groupExercicesByTd(exercices);
-
-    const getTdColorClass = (tdNumber) => {
-        switch (tdNumber) {
-            case 1: return "text-green-500";
-            case 2: return "text-blue-500";
-            case 3: return "text-red-500";
-            default: return "text-zinc-500";
-        }
-    };
-
-    const getTdColorBG = (tdNumber) => {
-        switch (tdNumber) {
-            case 1: return "bg-gradient-to-r to-zinc-600 from-green-500";
-            case 2: return "bg-gradient-to-r to-zinc-600 from-blue-500";
-            case 3: return "bg-gradient-to-r to-zinc-600 from-red-500";
-            default: return "bg-gradient-to-r to-zinc-600 from-zinc-500";
-        }
-    };
-
-    const [copiedExercices, setCopiedExercices] = useState({});
-
-
-    const handleCopyCode = (code, exerciceId) => {
-        navigator.clipboard.writeText(code).then(() => {
-            setCopiedExercices(prevState => ({ ...prevState, [exerciceId]: true }));
+    useEffect(() => {
+        tiltRefs.current.forEach((tiltRef) => {
+            VanillaTilt.init(tiltRef, {
+                max: 25,
+                speed: 400,
+                glare: true,
+                "max-glare": 0.5,
+            });
         });
-    };
+
+        return () => {
+            tiltRefs.current.forEach((tiltRef) => {
+                if (tiltRef && tiltRef.vanillaTilt) {
+                    tiltRef.vanillaTilt.destroy();
+                }
+            });
+        };
+    }, []);
 
 
 
 
-    const StyledDiv = styled.div`
-        position: relative;
-        display: inline-block;
-  &:before {
-    content: '';
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-    background: linear-gradient(145deg, #3B82F6, #90b3ee);
-    z-index: -1;
-    border-radius: inherit;
-    filter: blur(10px);
-    opacity: 1; // Toujours visible
-    opacity: 30%;
-  }
-    `
+
+  return (
+    <div className='m-20'>
+
+        <div className='text-4xl poppins-bold text-white text-center'>Cours / Exercices</div>
+
+      <div className='flex flex-col flex-wrap md:flex-row justify-center gap-20 items-center mt-16'>
+           
+
+           {listeCours.map(function (cours) {
+               return (
+                   <div class="card" ref={el => tiltRefs.current[cours.id] = el} data-tilt data-tilt-perspective="1500">
+                   <div className='absolute right-2 poppins-bold text-sm top-2 bg-zinc-800 pt-1 pb-1 pr-2 pl-2 rounded-md'>{cours.type === 'exercices' && "Exercices"} </div>
+                        <div className='absolute right-2 poppins-bold text-sm top-2 bg-zinc-800 pt-1 pb-1 pr-2 pl-2 rounded-md'>{cours.type === 'cours' && "Cours"} </div>
+                       <div class={`card-image ${cours.image}`} ></div>
+                       <div class="card-text">
+                           <span class="date">{cours.date}</span>
+                           <h2 className='text-xl poppins-bold'>{cours.titre}</h2>
+                           <p>{cours.description}</p>
+                       </div>
+                       <Link to={cours.lien} className='card-stats mt-8 poppins-bold bg-blue-600 hover:bg-blue-800 transition-all rounded-br-2xl rounded-bl-2xl text-center justify-center items-center flex'>{cours["button-text"]}</Link>
+                   </div>
+               )
+           })}
 
 
-
-
-    return (
-        <div>
-            <Link to="../" className="absolute right-8 bg-zinc-700 border border-zinc-400 pt-2 pb-2 pl-6 pr-6 rounded-full transition-all hover:bg-zinc-400 hidden lg:block text-white">Retour à l'accueil</Link>
-            <div className="table-of-contents mb-8">
-                <h2 className="text-2xl md:text-3xl font-bold text-center titre mr-4 ml-4 text-white">⬇️Cliquez pour accéder directement⬇️</h2>
-                <ul>
-                    {Object.keys(exercicesGroupedByTd).map((tdNumber) => (
-                        <li key={tdNumber} className="text-center">
-                            <a href={`#td-${tdNumber}`} className="text-white hover:underline text-xl titre">{`TD ${tdNumber}`}</a>
-                        </li>
-                    ))}
-                </ul>
-
-            </div>
-            <div className="flex flex-col items-center ">
-                {Object.entries(exercicesGroupedByTd).map(([tdNumber, exercices]) => (
-                    <StyledDiv id={`td-${tdNumber}`} key={tdNumber} className="w-3/4 md:w-1/2 bg-zinc-800 p-4 mb-16 m-4 rounded-lg">
-                        {exercices.map((exercice, index) => (
-                            <div key={index} className="relative">
-
-                                <h1 className={`text-3xl mt-4 font-bold ${getTdColorClass(exercice.td)} titre`}>{exercice.titre}</h1>
-                                <p className="mt-2 mb-4 text-white">💡{exercice.description}</p>
-                                <div className=" flex flex-col rounded-lg">
-                                    <div className="flex flex-row justify-between h-8 bg-zinc-700 items-center pl-2 pr-2 text-sm rounded-t-lg">
-                                        <div className="text-white">main.cpp</div>
-                                        <button onClick={() => handleCopyCode(exercice.code, `${tdNumber}-${index}`)} className="w-fit copy-button text-zinc-400 titre hover:text-zinc-200 transition-all">
-                                            {copiedExercices[`${tdNumber}-${index}`] ? '✅ Copié' : '📋 Copier le code'}
-                                        </button>
-                                    </div>
-                                    <SyntaxHighlighter language="c++" style={atomOneDark} customStyle={{ padding: '25px', borderRadius: '0px 0px 10px 10px' }} className="text-xs md:text-base">
-                                        {exercice.code}
-                                    </SyntaxHighlighter>
-                                </div>
-                                <div className={`w-auto h-0.5 ${getTdColorBG(exercice.td)} mt-10`}></div>
-                            </div>
-                        ))}
-                    </StyledDiv>
-                ))}
-            </div>
-        </div>
-    );
+           </div>
+    </div>
+  );
 }
 
 export default Exercices;

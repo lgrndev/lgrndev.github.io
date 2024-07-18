@@ -72,6 +72,48 @@
     background-size: cover;
     background-position: center;
 }
+.card-image4 {
+    
+    background: url("../../assets/background_card_4.jpg");
+    
+    background-size: cover;
+    background-position: center;
+}
+.card-image5 {
+    
+    background: url("../../assets/background_card_5.jpg");
+    
+    background-size: cover;
+    background-position: center;
+}
+.card-image6 {
+    
+    background: url("../../assets/background_card_6.jpg");
+    
+    background-size: cover;
+    background-position: center;
+}
+.card-image7 {
+    
+    background: url("../../assets/background_card_7.jpg");
+    
+    background-size: cover;
+    background-position: center;
+}
+.card-image8 {
+    
+    background: url("../../assets/background_card_8.jpg");
+    
+    background-size: cover;
+    background-position: center;
+}
+.card-image9 {
+    
+    background: url("../../assets/background_card_9.jpg");
+    
+    background-size: cover;
+    background-position: center;
+}
 .card-stats {
     
     transform: translateZ(15px);

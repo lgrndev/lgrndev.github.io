@@ -8,7 +8,7 @@ function Footer () {
             <div className='flex flex-col justify-between mt-8 md:flex-row items-center gap-4 sm:gap-2'>
                 <div className='text-zinc-300 flex flex-row md:gap-10 text-sm gap-4'>
                     <Link to="/">Accueil</Link>
-                    <Link to="/exercices">Exercices</Link>
+                    <Link to="/cours">Cours</Link>
                     <Link to="/apropos">A propos</Link>
                 </div>
 

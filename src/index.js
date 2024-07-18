@@ -7,6 +7,7 @@ import Header from './components/Header/Header';
 import Exercices from './pages/Exercices';
 import Footer from './components/Footer';
 import APropos from './pages/APropos';
+import Cpp from './pages/Exercices/Cpp';
 
 import grille from './assets/grille.jpg';
 
@@ -45,7 +46,8 @@ ReactDOM.render(
             <Header />
           <Routes>
               <Route path="/" element={<Accueil />} />
-              <Route path="/exercices" element={<Exercices />} />
+              <Route path="/cours" element={<Exercices />} />
+              <Route path="/cours/cpp" element={<Cpp />} />
               <Route path="/apropos" element={<APropos />} />
           </Routes>
           <Footer />
