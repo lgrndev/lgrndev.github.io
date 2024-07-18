@@ -35,7 +35,7 @@ function Exercices() {
 
 
   return (
-    <div className='m-20'>
+    <div className='m-4 sm:m-20'>
 
         <div className='text-4xl poppins-bold text-white text-center'>Cours / Exercices</div>
 

@@ -73,7 +73,7 @@ function Accueil() {
 
                 <div className='flex flex-col gap-4'>
                     <StyledLink to='/exercices/cpp' className='bg-blue-600 text-white p-4 pr-6 pl-6 rounded-full h-fit mr-10 hover:bg-blue-500 transition-all active:bg-blue-700  text-center poppins-bold'>Voir les corrigés de C++</StyledLink>
-                    <img src={fleche} alt='fleche' className='w-32 h-32 -rotate-90 invert opacity-80 -ml-16 hidden lg:block' />
+                    <img src={fleche} alt='fleche' className='w-32 h-32 -rotate-90 invert opacity-80 -ml-16 hidden 2xl:block' />
                 </div>
             </div>
 

@@ -14,6 +14,32 @@ import CppCours from './pages/Cours/Cpp';
 import Thermo from './pages/Exercices/Thermo/index.jsx';
 import ThermoCours from './pages/Cours/Thermo/index.jsx';
 
+import Dynamique from './pages/Exercices/Dynamique';
+import DynamiqueCours from './pages/Cours/Dynamique';
+
+import Electrocin from './pages/Exercices/Electrocin';
+import ElectrocinCours from './pages/Cours/Electrocin';
+
+import Electromag from './pages/Exercices/Electromag';
+import ElectromagCours from './pages/Cours/Electromag';
+
+import Maths from './pages/Exercices/Maths';
+import MathsCours from './pages/Cours/Maths';
+
+import Optiquegeo from './pages/Exercices/Optiquegeo';
+import OptiquegeoCours from './pages/Cours/Optiquegeo';
+
+import Python from './pages/Exercices/Python';
+import PythonCours from './pages/Cours/Python';
+
+
+
+
+
+
+
+
+
 import grille from './assets/grille.jpg';
 
 import { createGlobalStyle } from 'styled-components';
@@ -58,6 +84,25 @@ ReactDOM.render(
 
                 <Route path="/exercices/thermo" element={<Thermo />} />
                 <Route path="/cours/thermo" element={<ThermoCours />} />
+
+                <Route path="/exercices/dynamique" element={<Dynamique />} />
+                <Route path="/cours/dynamique" element={<DynamiqueCours />} />
+
+
+                <Route path="/exercices/electrocin" element={<Electrocin />} />
+                <Route path="/cours/electrocin" element={<ElectrocinCours />} />
+
+                <Route path="/exercices/electromag" element={<Electromag />} />
+                <Route path="/cours/electromag" element={<ElectromagCours />} />
+
+                <Route path="/exercices/maths" element={<Maths />} />
+                <Route path="/cours/maths" element={<MathsCours />} />
+
+                <Route path="/exercices/optiquegeo" element={<Optiquegeo />} />
+                <Route path="/cours/optiquegeo" element={<OptiquegeoCours />} />
+
+                <Route path="/exercices/python" element={<Python />} />
+                <Route path="/cours/python" element={<PythonCours />} />
 
                 <Route path="/apropos" element={<APropos />} />
           </Routes>

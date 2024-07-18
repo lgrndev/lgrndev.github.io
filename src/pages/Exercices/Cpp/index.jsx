@@ -80,9 +80,10 @@ function Cpp() {
 
     return (
         <div>
+            <div className="text-center text-white text-4xl poppins-bold mb-16 mt-8">Exercices C++</div>
             
             <div className="table-of-contents mb-8">
-                <h2 className="text-2xl md:text-3xl font-bold text-center titre mr-4 ml-4 text-white">⬇️Cliquez pour accéder directement⬇️</h2>
+                <h2 className="text-2xl md:text-2xl font-bold text-center titre mr-4 ml-4 text-white">⬇️Cliquez pour accéder directement⬇️</h2>
                 <ul>
                     {Object.keys(exercicesGroupedByTd).map((tdNumber) => (
                         <li key={tdNumber} className="text-center">
