@@ -4,10 +4,15 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './styles/BasicStyle.css'
 import Accueil from './pages/Accueil';
 import Header from './components/Header/Header';
-import Exercices from './pages/Exercices';
+import Exercices from './pages/CoursExos';
 import Footer from './components/Footer';
 import APropos from './pages/APropos';
+
 import Cpp from './pages/Exercices/Cpp';
+import CppCours from './pages/Cours/Cpp';
+
+import Thermo from './pages/Exercices/Thermo/index.jsx';
+import ThermoCours from './pages/Cours/Thermo/index.jsx';
 
 import grille from './assets/grille.jpg';
 
@@ -45,10 +50,16 @@ ReactDOM.render(
       <GlobalStyle />
             <Header />
           <Routes>
-              <Route path="/" element={<Accueil />} />
-              <Route path="/cours" element={<Exercices />} />
-              <Route path="/cours/cpp" element={<Cpp />} />
-              <Route path="/apropos" element={<APropos />} />
+                <Route path="/" element={<Accueil />} />
+                <Route path="/cours" element={<Exercices />} />
+
+                <Route path="/exercices/cpp" element={<Cpp />} />
+                <Route path="/cours/cpp" element={<CppCours />} />
+
+                <Route path="/exercices/thermo" element={<Thermo />} />
+                <Route path="/cours/thermo" element={<ThermoCours />} />
+
+                <Route path="/apropos" element={<APropos />} />
           </Routes>
           <Footer />
       </Router>

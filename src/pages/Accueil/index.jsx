@@ -72,7 +72,7 @@ function Accueil() {
                 </p>
 
                 <div className='flex flex-col gap-4'>
-                    <StyledLink to='/cours/cpp' className='bg-blue-600 text-white p-4 pr-6 pl-6 rounded-full h-fit mr-10 hover:bg-blue-500 transition-all active:bg-blue-700  text-center poppins-bold'>Voir les corrigés de C++</StyledLink>
+                    <StyledLink to='/exercices/cpp' className='bg-blue-600 text-white p-4 pr-6 pl-6 rounded-full h-fit mr-10 hover:bg-blue-500 transition-all active:bg-blue-700  text-center poppins-bold'>Voir les corrigés de C++</StyledLink>
                     <img src={fleche} alt='fleche' className='w-32 h-32 -rotate-90 invert opacity-80 -ml-16 hidden lg:block' />
                 </div>
             </div>
@@ -85,15 +85,18 @@ function Accueil() {
             {listeCours.slice(0,3).map(function (cours) {
                 return (
                     <div class="card relative" ref={el => tiltRefs.current[cours.id] = el} data-tilt data-tilt-perspective="1500">
-                        <div className='absolute right-2 poppins-bold text-sm top-2 bg-zinc-800 pt-1 pb-1 pr-2 pl-2 rounded-md'>{cours.type === 'exercices' && "Exercices"} </div>
-                        <div className='absolute right-2 poppins-bold text-sm top-2 bg-zinc-800 pt-1 pb-1 pr-2 pl-2 rounded-md'>{cours.type === 'cours' && "Cours"} </div>
+                        <div className={`absolute right-2 poppins-bold text-sm top-2 pt-1 pb-1 pr-2 pl-2 rounded-md ${cours.type === 'disponible' && "bg-green-600"}`}>{cours.type === 'disponible' && "Disponible"} </div>
+                        <div className={`absolute right-2 poppins-bold text-sm top-2 pt-1 pb-1 pr-2 pl-2 rounded-md ${cours.type === 'non-disponible' && "bg-red-800"}`}>{cours.type === 'non-disponible' && "Coming Soon"} </div>
                         <div class={`card-image ${cours.image}`} ></div>
                         <div class="card-text">
                             <span class="date">{cours.date}</span>
                             <h2 className='text-xl poppins-bold'>{cours.titre}</h2>
                             <p>{cours.description}</p>
                         </div>
-                        <Link to={cours.lien} className='card-stats mt-8 poppins-bold bg-blue-600 hover:bg-blue-800 transition-all rounded-br-2xl rounded-bl-2xl text-center justify-center items-center flex'>{cours["button-text"]}</Link>
+                        <div className='flex flex-row'>
+                            <Link to={cours.liencours} className='w-screen border-r-2 border-r-blue-200 mt-8 poppins-bold bg-blue-600 hover:bg-blue-800 transition-all rounded-bl-2xl  text-center justify-center items-center flex'>{cours["button-text-cours"]}</Link>
+                            <Link to={cours.lienexos} className='w-screen mt-8 poppins-bold bg-blue-600 hover:bg-blue-800 transition-all rounded-br-2xl  text-center justify-center items-center flex'>{cours["button-text-exos"]}</Link>
+                        </div>
                     </div>
                 )
             })}
