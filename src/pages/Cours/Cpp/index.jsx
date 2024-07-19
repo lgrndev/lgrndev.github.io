@@ -5,7 +5,7 @@ import '@react-pdf-viewer/core/lib/styles/index.css';
 function CppCours() {
     return (
         <div className="text-white flex flex-col justify-center items-center">
-          <div className='w-1/3 flex flex-col'>
+          <div className=' w-5/6 md:w-1/2 xl:w-1/3 flex flex-col'>
             <div className='text-4xl text-center poppins-bold'>C++</div>
             <div className='text-center text-zinc-400'>Merci à Anthony V. (@Astriyan) pour les cours !</div>
             <div className='text-xl text-center poppins-bold mb-8 mt-10'>Chapitre 1</div>

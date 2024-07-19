@@ -71,9 +71,11 @@ function Accueil() {
                     <br/>Contactez moi sur mon e-mail : <a href='mailto:lucas.langrand@etu.univ-lyon1.fr?body=Mes cours - Lgrndev' className='text-blue-50'>lucas.langrand@etu.univ-lyon1.fr</a> pour me proposer vos cours/exercices corrigés !
                 </p>
 
-                <div className='flex flex-col gap-4'>
-                    <StyledLink to='/exercices/cpp' className='bg-blue-600 text-white p-4 pr-6 pl-6 rounded-full h-fit mr-10 hover:bg-blue-500 transition-all active:bg-blue-700  text-center poppins-bold'>Voir les corrigés de C++</StyledLink>
-                    <img src={fleche} alt='fleche' className='w-32 h-32 -rotate-90 invert opacity-80 -ml-16 hidden 2xl:block' />
+                <div className='flex flex-col gap-4 relative'>
+                    <StyledLink to='/exercices/cpp' className='bg-blue-600 text-white p-4 pr-6 pl-6 rounded-full h-fit mr-10 hover:bg-blue-500 transition-all active:bg-blue-700  text-center poppins-bold'>Voir les corrigés de C++
+                    <img src={fleche} alt='fleche' className=' absolute w-32 h-32 -rotate-90 invert opacity-80 -ml-16 hidden lg:block top-28 xl:top-20 left-20' />
+                    </StyledLink>
+                    
                 </div>
             </div>
 
