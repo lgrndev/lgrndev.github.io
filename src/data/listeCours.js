@@ -10,6 +10,7 @@ export const listeCours = [
         "button-text-exos": "Voir les corrigés",
         "button-text-cours": "Voir les cours",
         "type":"disponible",
+        "annee": 2,
     },
     {
         "id": 2,
@@ -34,6 +35,7 @@ export const listeCours = [
         "button-text-exos": "Voir les corrigés",
         "button-text-cours": "Voir les cours",
         "type":"non-disponible",
+        "annee": 1,
     },
     {
         "id": 4,
@@ -46,6 +48,7 @@ export const listeCours = [
         "button-text-exos": "Voir les corrigés",
         "button-text-cours": "Voir les cours",
         "type":"non-disponible",
+        "annee": 1,
     },
     {
         "id": 5,
@@ -58,6 +61,7 @@ export const listeCours = [
         "button-text-exos": "Voir les corrigés",
         "button-text-cours": "Voir les cours",
         "type":"non-disponible",
+        "annee": 1,
     },
     {
         "id": 6,
@@ -70,6 +74,7 @@ export const listeCours = [
         "button-text-exos": "Voir les corrigés",
         "button-text-cours": "Voir les cours",
         "type":"non-disponible",
+        "annee": 1,
     },
     {
         "id": 7,
@@ -82,6 +87,7 @@ export const listeCours = [
         "button-text-exos": "Voir les corrigés",
         "button-text-cours": "Voir les cours",
         "type":"non-disponible",
+        "annee": 1,
     },
     {
         "id": 8,
@@ -94,6 +100,7 @@ export const listeCours = [
         "button-text-exos": "Voir les corrigés",
         "button-text-cours": "Voir les cours",
         "type":"non-disponible",
+        "annee": 1,
     },
     {
         "id": 20,

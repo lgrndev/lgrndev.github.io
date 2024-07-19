@@ -87,6 +87,7 @@ function Accueil() {
                     <div class="card relative" ref={el => tiltRefs.current[cours.id] = el} data-tilt data-tilt-perspective="1500">
                         <div className={`absolute right-2 poppins-bold text-sm top-2 pt-1 pb-1 pr-2 pl-2 rounded-md ${cours.type === 'disponible' && "bg-green-600"}`}>{cours.type === 'disponible' && "Disponible"} </div>
                         <div className={`absolute right-2 poppins-bold text-sm top-2 pt-1 pb-1 pr-2 pl-2 rounded-md ${cours.type === 'non-disponible' && "bg-red-800"}`}>{cours.type === 'non-disponible' && "Coming Soon"} </div>
+                        <div className='absolute left-2 poppins-bold text-sm top-2 pt-1 pb-1 pr-2 pl-2 rounded-md bg-zinc-800'>{(cours.annee === 1 || cours.annee === 2 || cours.annee === 3) ? `L${cours.annee}` : 'Hors Lyon1'}</div>
                         <div class={`card-image ${cours.image}`} ></div>
                         <div class="card-text">
                             <span class="date">{cours.date}</span>
