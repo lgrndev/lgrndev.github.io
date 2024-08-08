@@ -1,5 +1,14 @@
+<div align='center'>
+  <h1>Lgrndev</h1>
 
-# Lgrndev
+  ### Site web communautaire pour Lyon1.
+  ![React](https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Github stars](https://img.shields.io/github/stars/lgrndev/lgrndev.github.io?style=for-the-badge)
+
+</div>
+
+## A propos
 
 Bienvenue sur le dépôt GitHub de Lgrndev ! Ce projet est un site internet regroupant les cours de l'Université Lyon 1. 
 
